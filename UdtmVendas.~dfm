@@ -1,0 +1,101 @@
+object DtmVendas: TDtmVendas
+  OldCreateOrder = False
+  Left = 321
+  Top = 276
+  Height = 246
+  Width = 409
+  object CdsVendas: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from venda'
+    Params = <>
+    ProviderName = 'DspVendas'
+    Left = 48
+    Top = 152
+    object CdsVendasCODVENDA: TIntegerField
+      DisplayWidth = 5
+      FieldName = 'CODVENDA'
+      Required = True
+    end
+    object CdsVendasDATAVENDA: TStringField
+      DisplayWidth = 14
+      FieldName = 'DATA VENDA'
+      Size = 10
+    end
+    object CdsVendasVALORPRODUTO: TFloatField
+      DisplayWidth = 19
+      FieldName = 'VALOR PRODUTO'
+    end
+    object CdsVendasQUANTIDADE: TIntegerField
+      DisplayWidth = 14
+      FieldName = 'QUANTIDADE'
+    end
+    object CdsVendasCLIENTE: TStringField
+      DisplayWidth = 36
+      FieldName = 'CLIENTE'
+      FixedChar = True
+      Size = 30
+    end
+    object CdsVendasDESCONTO: TFloatField
+      DisplayWidth = 12
+      FieldName = 'DESCONTO'
+    end
+    object CdsVendasACRESCIMO: TFloatField
+      DisplayWidth = 13
+      FieldName = 'ACRESCIMO'
+    end
+    object CdsVendasFRETE: TFloatField
+      DisplayWidth = 12
+      FieldName = 'FRETE'
+    end
+  end
+  object DspVendas: TDataSetProvider
+    DataSet = QryVendas
+    Options = [poAllowCommandText]
+    Left = 48
+    Top = 88
+  end
+  object DSVendas: TDataSource
+    DataSet = CdsVendas
+    Left = 128
+    Top = 88
+  end
+  object QryVendas: TSQLQuery
+    Active = True
+    DataSource = DSVendas
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DtmGeral.SQLConnection1
+    Left = 48
+    Top = 32
+  end
+  object CdsVenCod: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from venda'
+    Params = <>
+    ProviderName = 'DspVenCod'
+    Left = 232
+    Top = 144
+  end
+  object DspVenCod: TDataSetProvider
+    DataSet = QryVenCod
+    Options = [poAllowCommandText]
+    Left = 232
+    Top = 80
+  end
+  object DSvencod: TDataSource
+    DataSet = CdsVenCod
+    Left = 320
+    Top = 80
+  end
+  object QryVenCod: TSQLQuery
+    Active = True
+    DataSource = DSvencod
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DtmGeral.SQLConnection1
+    Left = 232
+    Top = 24
+  end
+end
